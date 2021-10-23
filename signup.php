@@ -14,7 +14,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
     {
         //save to database
         $query = "Insert into student_details (StudentID, student_email, student_password, student_name, student_number) values ('$StudentID', '$student_email', '$student_password', $student_name, $student_number)"; 
-        mysqli_query($con, $query);
+        mysqli_query($conn, $query);
         header("Location: login.php");
         die;
     } else

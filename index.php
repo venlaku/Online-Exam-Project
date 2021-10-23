@@ -1,11 +1,9 @@
 <?php
-    session_start();
-    $_SESSION;
-
+session_start();
 include("dbHandler.php");
 include("functions.php");
 
-$user_data = check_login($con);
+$user_data = check_login($conn);
 ?>
 
 
