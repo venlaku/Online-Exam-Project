@@ -34,7 +34,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
 
     <link rel="stylesheet" href="style.css" type="text/css">
     
-    <title>Login</title>
+    <title>Sign Up</title>
 </head>
 <body>
     <h1>Online Exam</h1>

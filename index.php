@@ -3,7 +3,7 @@ session_start();
 include("dbHandler.php");
 include("functions.php");
 
-$user_data = check_login($conn);
+$student_data = check_login($conn);
 ?>
 
 
@@ -20,6 +20,6 @@ $user_data = check_login($conn);
     <a href="login.php" class="btn">Login</a>
     <h1>Online exam</h1>
     <br>
-    <p>Hello Student!</p>
+    <p>Hello <?php echo $student_data['student_name']!</p> ?>
 </body>
 </html>

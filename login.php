@@ -4,6 +4,37 @@ session_start();
 include("dbHandler.php");
 include("functions.php");
 
+if($_SERVER['REQUEST_METHOD'] == "POST")
+{
+    //something was posted
+    $student_email = $_POST['student_email'];
+    $student_password = $_POST['student_password'];
+
+    if(!empty($student_email) && !empty($student_password) && !is_numeric($student_email))
+    {
+        //read from database
+        $query = "select * from student_details where student_email = '$student_email' limit 1"; 
+        
+        $result = mysqli_query($conn, $query);
+        
+        if($result)
+        {
+            if($result && mysqli_num_rows($result)>0)
+            {
+                $student_data = mysqli_fetc_assoc($result);
+
+                if($student_data['password']===$student_password)
+                {
+                    $_SESSION['StudentID'] = $student_data['StudentID'];
+                    header("Location: index.php");
+                    die;
+                }
+            }
+        }
+        echo "Wrong email or password!";
+    } else
+    {
+        echo "Please enter some valid info!";
 ?>
 
 <!DOCTYPE html>
