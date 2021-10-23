@@ -2,27 +2,33 @@
 session_start();
 
 include("dbHandler.php");
-include("functions.php");
 
 if($_SERVER['REQUEST_METHOD'] == "POST")
 {
     //something was posted
     $student_email = $_POST['student_email'];
     $student_password = $_POST['student_password'];
+    $student_name = $_POST['student_name'];
+    $student_number= $_POST['student_number'];
 
     if(!empty($student_email) && !empty($student_password) && !is_numeric($student_email))
     {
         //save to database
-        $query = "Insert into student_details (StudentID, student_email, student_password, student_name, student_number) values ('$StudentID', '$student_email', '$student_password', $student_name, $student_number)"; 
-        mysqli_query($conn, $query);
-        header("Location: login.php");
-        die;
+        $query = "INSERT INTO student_details (student_email, student_password, student_name, student_number) VALUES ('$student_email', '$student_password', '$student_name', '$student_number')"; 
+        if(mysqli_query($conn, $query))
+        {
+            header("Location: login.php");
+            die;
+
+        } else {
+            echo 'query error: ' . mysqli_error($conn);
+        }
+       
     } else
     {
-        echo "Please enter some valid info!";
+        echo "Please enter email and password!";
     }
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -45,7 +51,6 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
             <input id="text" type="text" name="student_number" placeholder="Student Number..."></input>
             <input id="text" type="text" name="student_email" placeholder="Email..."></input>
             <input id="text" type="password" name="student_password" placeholder="Password..."></input>
-            <input id="text" type="password" name="student_password" placeholder="Confirm Password..."></input>
             <input id="loginbtn" type="submit" value="Sign Up"></input>
             <br>
             <a href="login.php">Click to Login</a>

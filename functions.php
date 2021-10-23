@@ -1,7 +1,7 @@
 <?php
 
 //checks if user is logged in. If not prevents user getting to index
-function check_login($con)
+function check_login($conn)
 {
     if(isset($_SESSION['StudentID']))
     {
@@ -10,7 +10,7 @@ function check_login($con)
         $result= mysqli_query($conn, $query);
         if($result && mysqli_num_rows($result)>0)
         {
-            $student_data = mysqli_fetc_assoc($result);
+            $student_data = mysqli_fetch_assoc($result);
             return $student_data;
         }
     }

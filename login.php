@@ -13,7 +13,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
     if(!empty($student_email) && !empty($student_password) && !is_numeric($student_email))
     {
         //read from database
-        $query = "select * from student_details where student_email = '$student_email' limit 1"; 
+        $query = "SELECT * FROM student_details WHERE student_email = '$student_email' limit 1"; 
         
         $result = mysqli_query($conn, $query);
         
@@ -21,9 +21,9 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
         {
             if($result && mysqli_num_rows($result)>0)
             {
-                $student_data = mysqli_fetc_assoc($result);
+                $student_data = mysqli_fetch_assoc($result);
 
-                if($student_data['password']===$student_password)
+                if($student_data['student_password']===$student_password)
                 {
                     $_SESSION['StudentID'] = $student_data['StudentID'];
                     header("Location: index.php");
@@ -35,6 +35,9 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
     } else
     {
         echo "Please enter some valid info!";
+
+    }
+}
 ?>
 
 <!DOCTYPE html>

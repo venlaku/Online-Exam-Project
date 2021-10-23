@@ -17,9 +17,9 @@ $student_data = check_login($conn);
     <title>Online Exam</title>
 </head>
 <body>
-    <a href="login.php" class="btn">Login</a>
+    <a href="logout.php" class="btn">Logout</a>
     <h1>Online exam</h1>
     <br>
-    <p>Hello <?php echo $student_data['student_name']!</p> ?>
+    <p>Hello <?php echo $student_data['student_name']?>!</p> 
 </body>
 </html>
