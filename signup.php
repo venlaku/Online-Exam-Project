@@ -43,7 +43,9 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
     <title>Sign Up</title>
 </head>
 <body>
+    <header>
     <h1>Online Exam</h1>
+    </header>
     <div id= "box">
         <form method="post">
             <div id=logintitle>Sign Up</div>

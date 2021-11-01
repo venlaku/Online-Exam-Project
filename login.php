@@ -25,9 +25,8 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
 
                 if($student_data['student_password']===$student_password)
                 {
-                    $_SESSION['StudentID'] = $student_data['StudentID'];
+                    $_SESSION['student_name'] = $student_data['student_name'];
                     header("Location: index.php");
-                    die;
                 }
             }
         }
@@ -52,7 +51,9 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
     <title>Login</title>
 </head>
 <body>
-    <h1>Online Exam</h1>
+    <header>
+        <h1>Online Exam</h1>
+    </header>
     <div id= "box">
         <form method="post">
             <div id="logintitle">Student Login</div>

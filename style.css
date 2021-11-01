@@ -3,6 +3,10 @@ body {
     background: linear-gradient(90deg, rgba(199,146,249,1) 0%, rgba(225,200,247,1) 48%, rgba(199,146,249,1) 100%);
 }
 
+header {
+    text-align: center;
+}
+
 .btn {
     border: 1px solid #000000;
     box-sizing: border-box;

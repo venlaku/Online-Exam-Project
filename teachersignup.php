@@ -18,7 +18,9 @@ include("functions.php");
     <title>Login</title>
 </head>
 <body>
+    <header>
     <h1>Online Exam</h1>
+    </header>
     <div id= "box">
         <form method="post">
             <div id=logintitle>Teacher Login</div>
