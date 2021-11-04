@@ -14,11 +14,11 @@ require 'dbHandler.php';
 	}
 
 	$database = "online_exam";
-	$db_found = new mysqli(DB_SERVER, DB_USER, DB_PASS, $database );
 
-	if ($db_found) {
 
-		$stmt = $db_found->prepare("SELECT ID, Question FROM tblexam");
+	if ($conn) {
+
+		$stmt = $conn->prepare("SELECT ID, Question FROM tblexam");
 
 		if ($stmt) {
 			$stmt->execute();
@@ -56,10 +56,29 @@ require 'dbHandler.php';
 </head>
 
 <body>
+
+<header>
+    <h1>Online Exam</h1>
+    <nav class="navbar sticky-top navbar-expand-lg">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+        <li class="nav-item active">
+        <a class="nav-link active" href="setQuestions.php">Set Exam Questions </a>
+        </li>
+        <li class="nav-item ">
+            <a class="nav-link " href="checkStudentAnswer.php">Students Answers</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="logout.php">LogOut</a>
+        </li>
+        </ul>
+    </nav>
+</header>
+<div class= "boxtwo">
 <FORM NAME ="form1" METHOD ="GET" ACTION ="setQestions.php">
 	<?PHP print $wholeHTML; ?>
 	<P><INPUT TYPE = "Submit" Name = "Submit1"  VALUE = "Set a Question"></P>
 </FORM>
+</div>
 <footer>
         <p>© Venla Kuosmanen </p>
     </footer>

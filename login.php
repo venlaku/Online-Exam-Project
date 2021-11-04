@@ -57,7 +57,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
     <a class="navbar-default" href="Index.html"><ion-icon name="leaf-outline" alt="This is leaf icon"></ion-icon></a>
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
         <li class="nav-item ">
-            <a class="nav-link " href="signup.php">Sign Up </a>
+            <a class="nav-link " href="signup.php">Student Sign Up</a>
         </li>
         <li class="nav-item active">
         <a class="nav-link active" href="login.php">Student LogIn</a>
