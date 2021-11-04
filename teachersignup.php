@@ -13,13 +13,27 @@ include("functions.php");
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="style.css" type="text/css">
+    <link rel="stylesheet" href="styles.css" type="text/css">
     
     <title>Login</title>
 </head>
 <body>
     <header>
     <h1>Online Exam</h1>
+    <nav class="navbar sticky-top navbar-expand-lg">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+        <li class="nav-item">
+            <a class="nav-link" href="signup.php">Sign Up </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="login.php">Student LogIn</a>
+        </li>
+        <li class="nav-item active">
+        <a class="nav-link active" href="teachersignup.php">Teacher LogIn</a>
+        </li>
+        </ul>
+    </nav>
+    
     </header>
     <div id= "box">
         <form method="post">
@@ -30,6 +44,10 @@ include("functions.php");
             <br>
         </form>
     </div>
+
+    <footer>
+        <p>© Venla Kuosmanen </p>
+    </footer>
     
 </body>
 </html>

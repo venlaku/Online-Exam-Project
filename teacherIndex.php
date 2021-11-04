@@ -3,7 +3,7 @@ session_start();
 include("dbHandler.php");
 include("functions.php");
 
-$student_data = check_login($conn);
+$teacher_data = check_teacher_login($conn);
 ?>
 
 
@@ -14,23 +14,24 @@ $student_data = check_login($conn);
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css" type="text/css">
-    <title>Online Exam</title>
+    <title>Online Exam - Teacher</title>
 </head>
 <body>
     <header>
-    <h1>Online exam</h1>
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
         <li class="nav-item active">
         <a class="nav-link active" href="logout.php">Log out </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="exam.php">Exam</a>
+            <a class="nav-link" href="setQuestions.php">Set Questions</a>
         </li>
         </ul>
+        <h1>Online exam</h1>
+        
     </header>
     <br>
-    <p>Hello <?php echo $student_data['student_name']?>!</p> 
-    <a class="nav-link" href="exam.php">Click to start Exam</a>
+    <p>Hello <?php echo $teacher_data['teacher_name']?>!</p> 
+
     <footer>
         <p>© Venla Kuosmanen </p>
     </footer>

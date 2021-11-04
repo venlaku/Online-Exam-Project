@@ -13,7 +13,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
     if(!empty($student_email) && !empty($student_password) && !is_numeric($student_email))
     {
         //read from database
-        $query = "SELECT * FROM student_details WHERE student_email = '$student_email' limit 1"; 
+        $query = "SELECT * FROM student_details WHERE student_email = '$student_email'"; 
         
         $result = mysqli_query($conn, $query);
         
@@ -25,7 +25,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
 
                 if($student_data['student_password']===$student_password)
                 {
-                    $_SESSION['student_name'] = $student_data['student_name'];
+                    $_SESSION['student_email'] = $student_data['student_email'];
                     header("Location: index.php");
                 }
             }
@@ -46,13 +46,28 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="style.css" type="text/css">
+    <link rel="stylesheet" href="styles.css" type="text/css">
     
     <title>Login</title>
 </head>
 <body>
     <header>
-        <h1>Online Exam</h1>
+    <h1>Online Exam</h1>
+    <nav class="navbar sticky-top navbar-expand-lg">
+    <a class="navbar-default" href="Index.html"><ion-icon name="leaf-outline" alt="This is leaf icon"></ion-icon></a>
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+        <li class="nav-item ">
+            <a class="nav-link " href="signup.php">Sign Up </a>
+        </li>
+        <li class="nav-item active">
+        <a class="nav-link active" href="login.php">Student LogIn</a>
+        </li>
+        <li class="nav-item ">
+            <a class="nav-link " href="teachersignup.php">Teacher LogIn</a>
+        </li>
+        </ul>
+    </nav>
+        
     </header>
     <div id= "box">
         <form method="post">
@@ -60,11 +75,12 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
             <input id="text" type="text" name="student_email" placeholder="Email..."></input>
             <input id="text" type="password" name="student_password" placeholder="Password..."></input>
             <input id="loginbtn" type="submit" value="Login"></input>
-            <br>
-            <a href="signup.php">Click to Sign up</a>
-            <a href="teachersignup.php">Teacher Login</a>
         </form>
     </div>
+
+    <footer>
+        <p>© Venla Kuosmanen </p>
+    </footer>
     
 </body>
 </html>
