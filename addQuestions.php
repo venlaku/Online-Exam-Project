@@ -13,7 +13,7 @@ if (isset($_GET['Sub1'])) {
 	$db_found = new mysqli(DB_SERVER, DB_USER, DB_PASS, $database );
 
 	if ($db_found) {
-		$SQL = "INSERT INTO tblsurvey (Question, OptionA, OptionB, OptionC) VALUES (?,?,?,?)";
+		$SQL = "INSERT INTO tblexam (Question, OptionA, OptionB, OptionC) VALUES (?,?,?,?)";
 		$stmt = $db_found->prepare($SQL);
 		if ($stmt) {
 			$stmt->bind_param('ssss', $question, $answerA, $answerB, $answerC);

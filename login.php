@@ -13,7 +13,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
     if(!empty($student_email) && !empty($student_password) && !is_numeric($student_email))
     {
         //read from database
-        $query = "SELECT * FROM student_details WHERE student_email = '$student_email'"; 
+        $query = "SELECT * FROM student_details WHERE StudentID = '$StudentID'"; 
         
         $result = mysqli_query($conn, $query);
         
@@ -63,7 +63,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
         <a class="nav-link active" href="login.php">Student LogIn</a>
         </li>
         <li class="nav-item ">
-            <a class="nav-link " href="teachersignup.php">Teacher LogIn</a>
+            <a class="nav-link " href="teacherlogin.php">Teacher LogIn</a>
         </li>
         </ul>
     </nav>

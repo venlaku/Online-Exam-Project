@@ -6,6 +6,7 @@ include("functions.php");
 
 if($_SERVER['REQUEST_METHOD'] == "POST")
 {
+    
     //something was posted
     $student_email = $_POST['student_email'];
     $student_password = $_POST['student_password'];
@@ -22,12 +23,21 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
             die;
 
         } else {
-            echo 'query error: ' . mysqli_error($conn);
+            $msg = 'query error: ' . mysqli_error($conn);
         }
        
     } else
     {
-        echo "Please enter email and password!";
+        $msg = "Please enter email and password!";
+    }
+
+    if (isset($_POST['student_email'])){ // Checking if email is valid
+        $value = $_POST['student_email'];
+        if (filter_var($value, FILTER_VALIDATE_EMAIL) == true) {
+            $msg = "The input value '".$value."' is a valid email address";
+        } else {
+            $msg = "The input value '".$value."' is NOT a valid email address";
+        }
     }
 }
 ?>
@@ -50,13 +60,13 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
         <a class="navbar-default" href="Index.html"><ion-icon name="leaf-outline" alt="This is leaf icon"></ion-icon></a>
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
         <li class="nav-item active">
-        <a class="nav-link active" href="signup.php">Sign Up </a>
+        <a class="nav-link active" href="signup.php">Student Sign Up </a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="login.php">Student LogIn</a>
         </li>
         <li class="nav-item ">
-            <a class="nav-link " href="teachersignup.php">Teacher LogIn</a>
+            <a class="nav-link " href="teacherlogin.php">Teacher LogIn</a>
         </li>
         </ul>
     </nav>
@@ -66,7 +76,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
             <div id=logintitle>Sign Up</div>
             <input id="text" type="text" name="student_name"  placeholder="Name..."></input>
             <input id="text" type="text" name="student_number"  placeholder="Student Number..."></input>
-            <input id="text" type="text" name="student_email"  placeholder="Email..."></input>
+            <input id="text" type="text" name="student_email" placeholder="Email..."></input>
             <input id="text" type="password" name="student_password"  placeholder="Password..."></input>
             <input id="loginbtn" type="submit" value="Sign Up"></input>
         </form>
