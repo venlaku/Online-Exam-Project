@@ -3,7 +3,7 @@ session_start();
 include("dbHandler.php");
 include("functions.php");
 
-//$teacher_data = check_teacher_login($conn);
+$teacher_data = check_teacher_login($conn);
 ?>
 
 
@@ -20,7 +20,6 @@ include("functions.php");
 <header>
     <h1>Online Exam</h1>
     <nav class="navbar sticky-top navbar-expand-lg">
-        <a class="navbar-default" href="Index.html"><ion-icon name="leaf-outline" alt="This is leaf icon"></ion-icon></a>
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
         <li class="nav-item active">
         <a class="nav-link active" href="teacherIndex.php">Home </a>
