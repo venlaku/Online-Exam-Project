@@ -35,7 +35,7 @@ function check_teacher_login($conn)
     }
 
     //redirect to login
-    header("Location: teachersignup.php");
+    header("Location: teacherlogin.php");
     die;
 }
 

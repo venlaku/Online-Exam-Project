@@ -29,8 +29,30 @@ $student_data = check_login($conn);
         </ul>
     </header>
     <br>
-    <p>Hello <?php echo $student_data['student_name']?>!</p> 
-    <a class="nav-link" href="exam.php">Click to start Exam</a>
+
+<?php 
+    //Setting Time Limit Here
+    if(!isset($_SESSION['start_time']))
+    {
+        //$_SESSION['start_time']=
+    }
+?>
+Hello <span class="heavy"><?php echo $_SESSION['student']; ?></span>. Welcome to the Exam.<br />
+                
+    <div class="success">
+        <p style="text-align: left;">
+            Here are some of the rules and regulations of this app.<br />
+            1. This test is automated and you won't be able to return to previous question.<br />
+            2. After you click on "Take a Test", the timer will start and it can't be paused or stopped.<br />
+        </p>
+    </div>
+    
+    <a href="<?php echo SITEURL; ?>index.php?page=question">
+        <button type="button" class="btn-go">Take a Test</button>
+    </a>
+    <a href="<?php echo SITEURL; ?>index.php?page=logout">
+        <button type="button" class="btn-exit">&nbsp; Quit &nbsp;</button>
+    </a>
     <footer>
         <p>© Venla Kuosmanen </p>
     </footer>
